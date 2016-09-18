@@ -1,0 +1,10 @@
+machine:
+  java:
+    version: oraclejdk8
+  pre:
+    - sudo apt-get install cmake libunittest++-dev maven pkg-config npm build-essential
+  test:
+    override:
+      - cmake CMakeLists.txt
+      - export LC_ALL=c
+      - mvn clean package -e -X
